@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        body {
+    background-color: #ffcccb;
+    font-family: 'Arial', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.container {
+    text-align: center;
+    background-color: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    max-width: 500px;
+    width: 100%;
+    animation: fadeIn 1s ease-in-out;
+}
+
+.title {
+    color: #e63946;
+    font-size: 2.5em;
+    margin-bottom: 10px;
+}
+
+.message {
+    font-size: 1.5em;
+    margin: 20px 0;
+}
+
+.btn {
+    background-color: #e63946;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+    transition: background-color 0.3s, transform 0.3s;
+    margin: 10px;
+}
+
+.btn:hover {
+    background-color: #d62839;
+    transform: scale(1.05);
+}
+
+#proposal {
+    margin-top: 20px;
+    opacity: 0;
+    transform: translateY(-20px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+#proposal.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.hidden {
+    display: none;
+}
+
+.proposal-title {
+    font-size: 2em;
+    margin: 10px 0;
+}
+
+.proposal-message {
+    font-size: 1.2em;
+    margin: 10px 0;
+}
+
+.button-container {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.yes {
+    background-color: #2a9d8f;
+}
+
+.no {
+    background-color: #e76f51;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes confetti-fall {
+    0% { transform: translateY(-100%); }
+    100% { transform: translateY(100vh); }
+}
+
+.confetti {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background-color: #ffcc00;
+    opacity: 0.8;
+    animation: confetti-fall 3s linear infinite;
+    pointer-events: none;
+}
+    </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Valentine's Day Proposal</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1 class="title">Happy Valentine's Day!</h1>
+        <p class="message">You make my heart smile. Will you be my Valentine?</p>
+        <button id="proposalButton" class="btn">Reveal Proposal</button>
+        <div id="proposal" class="hidden">
+            <h2 class="proposal-title">💖 I Adore You! 💖</h2>
+            <p class="proposal-message">Will you be my Valentine?</p>
+            <div class="button-container">
+                <button id="yesButton" class="btn yes">Yes!</button>
+                <button id="noButton" class="btn no">No!</button>
+            </div>
+        </div>
+        <div id="confetti" class="hidden"></div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
